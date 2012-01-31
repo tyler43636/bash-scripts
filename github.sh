@@ -35,7 +35,4 @@ git push
 
 echo "==============="
 
-#Show the git logs
-git log
-
 exit
