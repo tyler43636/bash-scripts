@@ -1,9 +1,11 @@
 #!/bin/bash
+# github.sh
 #
-#Script to upload to github
+# Script to upload to github
 #
 
 DIRECTORY=`pwd`
+CONTINUE="y"
 
 echo "Would you like to upload the following directory: $DIRECTORY? \n"
 echo "Y/n"
@@ -11,13 +13,20 @@ echo "Y/n"
 #get input
 read CONTINUE
 
-if [ $CONTINUE != "Y" ]
+#convert response to lowercase
+#grep -i $CONTINUE
+echo $CONTINUE | tr [:upper:] [:lower:]
+
+echo $CONTINUE
+
+if [ $CONTINUE != "y" ]
 	then exit
 fi
 
+echo "Made it!"
+
 #Add any files in the directory to GIT
 git add .
-echo "==============="
 
 #Commit
 echo "Please enter a commit message"
@@ -32,7 +41,5 @@ echo "==============="
 
 #Push the commits to github
 git push
-
-echo "==============="
 
 exit
