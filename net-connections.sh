@@ -18,7 +18,4 @@ if [ -z "$PROCESS" ];then
 	read PROCESS
 fi
 
-#Test reading user variable
-echo $PROCESS
-
 lsof -i -n -P | grep $PROCESS
